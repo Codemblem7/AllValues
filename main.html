@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Political Test</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: #222; /* stand-in for fill('abstract colors') */
+  }
+</style>
+</head>
+<body>
+<script>
+//0 - Question; 1 - 0 for regular answers or specify; 2 - Axis; 3 - Which End; 4 - Next Instructions
+let q = 0;
+const questions = [
+  ['Capitalism is a better system than Socialism.', 0, 'Economy', 1, function () { alert('hi'); }]
+];
+const scores = { 'Economy': 50 /* Public - Private */ };
+const asked = { 'Economy': 0 };
+
+let box;
+
+function startTest() {
+  document.body.style.background = '#222';
+
+  box = document.createElement('div');
+  box.textContent = 'Why is this visible?';
+
+  box.style.position = 'absolute';
+  box.style.left = '50%';
+  box.style.top = '12%';
+  box.style.transform = 'translate(-50%, -50%)';
+  box.style.width = '350px';
+  box.style.textAlign = 'center';
+  box.style.fontFamily = 'arial';
+  box.style.fontWeight = 'bold';
+  box.style.fontSize = '22px';
+  box.style.color = 'white';
+
+  document.body.appendChild(box);
+  question();
+}
+
+function question() {
+  // reset('abstractcolors') -> background reset
+  document.body.style.background = '#222';
+
+  box.textContent = questions[q][0];
+
+  if (questions[q][1] == 0) {
+    // regular answers go here
+  }
+}
+
+startTest();
+</script>
+</body>
+</html>
